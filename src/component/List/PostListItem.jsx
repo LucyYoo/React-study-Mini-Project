@@ -26,7 +26,11 @@ export default function PostListItem(props) {
 
   return (
     <Wrapper onClick={onClick}>
+<<<<<<< HEAD
         <TitleText>{post.title}</TitleText>
+=======
+        <TitleText>{post.tilte}</TitleText>
+>>>>>>> 30a5b74f45082b9d2b8cea7d7892716f308497b0
     </Wrapper>
   )
 }
