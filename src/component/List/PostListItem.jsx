@@ -26,7 +26,7 @@ export default function PostListItem(props) {
 
   return (
     <Wrapper onClick={onClick}>
-        <TitleText>{post.tilte}</TitleText>
+        <TitleText>{post.title}</TitleText>
     </Wrapper>
   )
 }

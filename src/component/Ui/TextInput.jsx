@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledTextarea = styled.textarea`
-    width: calc(1005 - 32px);
+    width: calc(100% - 32px);
     ${(props) => 
         props.height &&
         `
@@ -11,9 +11,10 @@ const StyledTextarea = styled.textarea`
     padding: 16px;
     font-size: 16px;
     line-height: 20px;
+    resize: none;
 `
 export default function TextInput(props) {
-    const { height, value, onChange } = props;
+    const { height, value, onChange, ref} = props;
 
-  return <StyledTextarea height={height} value={value} onChange={onChange} />;
+  return <StyledTextarea height={height} value={value} onChange={onChange} ref={ref} />;
 }
