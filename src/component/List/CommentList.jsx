@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CommentListItem from "./CommentListItem";
+import UseFetch from "../../hooks/UseFetch";
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,13 +17,21 @@ const Wrapper = styled.div`
 `;
 
 export default function CommentList(props) {
-  const { comments } = props;
-  console.log(comments);
+  const { postId, comments, onDelete } = props;
+
   return (
     <Wrapper>
       {comments &&
         comments.map((comment, index) => {
-          return <CommentListItem key={comment.id} comment={comment} />;
+          if (comment.postId === +postId) {
+            return (
+              <CommentListItem
+                key={comment.id}
+                comment={comment}
+                onDelete={onDelete}
+              />
+            );
+          }
         })}
     </Wrapper>
   );

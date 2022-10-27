@@ -20,14 +20,14 @@ const Wrapper = styled.div`
 const ContentText = styled.p`
   font-size: 14px;
 `;
+
 export default function CommentListItem(props) {
-  const { key, comment } = props;
-  console.log(comment.id);
+  const { key, comment, onDelete } = props;
 
   return (
     <Wrapper>
-      <ContentText>{comment.content}</ContentText>
-      <Button title="삭제" />
+      <ContentText>{comment.comment}</ContentText>
+      <Button title="삭제" onClick={() => onDelete(comment.id)} />
     </Wrapper>
   );
 }
