@@ -48,14 +48,14 @@
       "id": 5
     },
     {
-      "postId": 1,
-      "comment": "와우",
-      "id": 6
-    },
-    {
       "postId": 4,
       "comment": "댓글 추가",
       "id": 7
+    },
+    {
+      "postId": 1,
+      "comment": "댓글 입력\n",
+      "id": 8
     }
   ]
 }

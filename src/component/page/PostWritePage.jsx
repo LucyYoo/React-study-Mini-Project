@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../Ui/Button";
 import TextInput from "../Ui/TextInput";
+import Toolbar from "../Ui/Toolbar";
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -71,7 +72,7 @@ export default function PostWritePage() {
             }}
             // ref={titleref}
           />
-
+          <Toolbar value={content} />
           <TextInput
             height={480}
             value={content}

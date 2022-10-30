@@ -18,7 +18,6 @@ export default function CommentWritepage({ postId }) {
 
   useEffect(() => {
     setCommentsList(comments);
-    console.log(1);
   }, [comments]);
 
   function onSubmit(event) {
