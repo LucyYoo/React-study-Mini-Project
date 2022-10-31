@@ -1,35 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-export default function Toolbar({ value }) {
-  function onChange(e) {
-    const commend = e.target.dataset.commend;
-    // if (commend !== undefined) {
-    //   document.execCommand(commend);
-    // }
-  }
+export default function Toolbar({ props }) {
+  const [state, setState] = useState({
+    data: "",
+    editor: null,
+  });
+
+  useEffect(() => {
+    console.log(state.data);
+    const editor = (
+      <CKEditor
+        id={"ck-editor-text"}
+        editor={ClassicEditor}
+        data={state.data}
+        onReady={(editor) => {
+          console.log("Editor is ready to use!", editor);
+        }}
+      />
+    );
+    setState({ ...state, editor: editor });
+  }, []);
   return (
-    <div onClick={onChange}>
-      <button type="button" data-commend="bold">
-        Bold
-      </button>
-      <button type="button" data-commend="italic">
-        Italic
-      </button>
-      <button type="button" data-commend="underLine">
-        UnderLine
-      </button>
-      <button type="button" data-commend="strikeThrough">
-        Strike Through
-      </button>
-      <button type="button" data-commend="justifyLeft">
-        Align Left
-      </button>
-      <button type="button" data-commend="justifyCenter">
-        Align Center
-      </button>
-      <button type="button" data-commend="justifyRight">
-        Align Right
-      </button>
+    <div>
+      <div>{state.editor}</div>
     </div>
   );
 }
