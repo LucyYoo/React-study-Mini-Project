@@ -3,28 +3,27 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default function Toolbar({ props }) {
-  const [state, setState] = useState({
+  const [text, setText] = useState({
     data: "",
     editor: null,
   });
 
   useEffect(() => {
-    console.log(state.data);
     const editor = (
       <CKEditor
         id={"ck-editor-text"}
         editor={ClassicEditor}
-        data={state.data}
-        onReady={(editor) => {
-          console.log("Editor is ready to use!", editor);
+        data={text.data}
+        onChange={(event, editor) => {
+          const data = editor.getData();
         }}
       />
     );
-    setState({ ...state, editor: editor });
+    setText({ ...text, editor: editor });
   }, []);
   return (
     <div>
-      <div>{state.editor}</div>
+      <div>{text.editor}</div>
     </div>
   );
 }

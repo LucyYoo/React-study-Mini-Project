@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../Ui/Button";
 import TextInput from "../Ui/TextInput";
-import Toolbar from "../Ui/Toolbar";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import SunEditor from "suneditor-react";
+import "suneditor/dist/css/suneditor.min.css";
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -32,7 +31,6 @@ export default function PostWritePage() {
 
   const [title, setTilte] = useState("");
   const [content, setContent] = useState("");
-  const [editor, setEditor] = useState(null);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -60,20 +58,10 @@ export default function PostWritePage() {
       });
   }
 
-  // useEffect(() => {
-  //   const Editor = (
-  //     <CKEditor
-  //       editor={ClassicEditor}
-  //       data={content}
-  //       // onChange={(event, editor) => {
-  //       //   const data = editor.getData();
-  //       //   console.log(data);
-  //       // }}
-  //     />
-  //   );
-  //   // setContent(...content);
-  //   setEditor(Editor);
-  // }, []);
+  // function changeContent(contnent) {
+  //   console.log(content);
+  //   setContent(Parser(contnent).props.children);
+  // }
 
   return (
     <Wrapper>
@@ -85,17 +73,15 @@ export default function PostWritePage() {
             onChange={(event) => {
               setTilte(event.target.value);
             }}
-            // ref={titleref}
           />
-          {/* <div>{editor}</div> */}
-          <Toolbar />
-          <Button
-            title="글 작성하기"
-            // onClick={() => {
-            //     navigate("/");
-            //     console.log(3);
-            // }}
+
+          <SunEditor
+            onChange={(content) => {
+              setContent(content);
+            }}
+            height="500px"
           />
+          <Button title="글 작성하기" />
         </form>
       </Container>
     </Wrapper>

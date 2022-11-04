@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Button from "../Ui/Button";
 import UseFetch from "../../hooks/UseFetch";
 import CommentWritePage from "./CommentWritePage";
+import HTMLReactParser from "html-react-parser";
+import * as DOMPurify from "dompurify";
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -48,6 +50,7 @@ export default function PostViewPage(props) {
 
   const write = UseFetch(`http://localhost:3001/post/${postId}`);
 
+  console.log();
   function onDelete() {
     if (window.confirm("삭제하시겠습니까?")) {
       fetch(`http://localhost:3001/post/${postId}`, {
@@ -72,7 +75,10 @@ export default function PostViewPage(props) {
         <Button title="삭제" onClick={onDelete} />
         <PostContainer>
           <TitleText>{write.title}</TitleText>
-          <ContentText>{write.content}</ContentText>
+          <ContentText>
+            {HTMLReactParser(DOMPurify.sanitize(write.content))}
+            {/* 각각 쓰면 계속 오류가 났었는데 같이 쓰니까 해결 */}
+          </ContentText>
         </PostContainer>
 
         <CommentWritePage postId={postId} />
