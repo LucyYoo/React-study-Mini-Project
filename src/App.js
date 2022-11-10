@@ -1,24 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
-import Clock from "./component/page/Clock";
+
 import EmptyPate from "./component/page/EmptyPage";
+import HeaderPage from "./component/page/HeaderPage";
 import LoginPage from "./component/page/LoginPage";
 import MainPage from "./component/page/MainPage";
 import PostViewPage from "./component/page/PostViewPage";
 import PostWritePage from "./component/page/PostWritePage";
 
-const MainTitleText = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: centder;
-`;
-
 function App() {
   return (
     <BrowserRouter>
-      <MainTitleText>제로의 미니 블로그</MainTitleText>
-      <Clock />
+      <HeaderPage />
       <Routes>
         <Route index element={<LoginPage />} />
         <Route path="main" element={<MainPage />} />

@@ -31,13 +31,6 @@ export default function MainPage(props) {
   return (
     <Wrapper>
       <Container>
-        <Button
-          title="글 작성하기"
-          onClick={() => {
-            navigate("/post-write");
-          }}
-        />
-
         <PostList
           posts={post}
           onClickItem={(item) => {
