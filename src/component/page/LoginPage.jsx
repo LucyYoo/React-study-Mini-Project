@@ -9,21 +9,13 @@ import MainPage from "./MainPage";
 export default function LoginPage() {
   const [login, setLoign] = useState(false);
   const [userName, setUserName] = useState("");
-
   useEffect(() => {
     const user = getItem("user");
+    setUserName(user);
     if (user) setLoign(true);
   }, [login]);
-  console.log(login);
-  function onLogin(e) {
-    /**
-     * loginName을 getItem을 해온다.
-     * getItem의 값이 있다면
-     * login을 트루로 바꾼다.
-     * getItem 값이 없다면
-     * userName을 setItem 하고 login을 트루로 바꾼다.
-     */
 
+  function onLogin(e) {
     const user = getItem("user");
     e.preventDefault();
     if (!user) {
@@ -37,10 +29,7 @@ export default function LoginPage() {
     removeItem("user");
     setLoign(false);
   }
-  /**메인페이지한테 userName을 줘서 메인페이지에서 이름이 뜨도록 한다.
-   * 메인페이지를 route index로 해서 무조건 로그인 페이지로 가도록 한다.
-   * App.js의 이름부분 메인페이지로 옮기기
-   */
+
   return (
     <>
       {login ? (

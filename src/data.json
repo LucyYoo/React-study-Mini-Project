@@ -66,6 +66,11 @@
       "postId": 4,
       "comment": "ghfhfhfh",
       "id": 9
+    },
+    {
+      "postId": 1,
+      "comment": "댓글 추가!\n",
+      "id": 10
     }
   ]
 }
