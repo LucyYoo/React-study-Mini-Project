@@ -29,6 +29,11 @@
       "title": "제목 와라락",
       "content": "<p style=\"margin-left: 25px;\"><strong>이것은 내용입니</strong>다 이전 에디터<u>가 더 예쁜</u>데 ㅠ <del>망할 </del><em>어떻게 해결해야할지 댗 ^^</em></p>",
       "id": 6
+    },
+    {
+      "title": "글 추가!",
+      "content": "<p><strong>추가합니다</strong></p>",
+      "id": 7
     }
   ],
   "comments": [
