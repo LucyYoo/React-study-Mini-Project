@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import styled, { css } from "styled-components";
 import EmptyPate from "./component/page/EmptyPage";
-import HeaderPage from "./component/page/HeaderPage";
 import LoginPage from "./component/page/LoginPage";
 import MainPage from "./component/page/MainPage";
 import PostViewPage from "./component/page/PostViewPage";
 import PostWritePage from "./component/page/PostWritePage";
+import "./style/style.css";
 
 function App() {
   return (
